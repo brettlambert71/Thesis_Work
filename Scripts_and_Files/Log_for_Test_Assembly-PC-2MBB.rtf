@@ -1,0 +1,336 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2818
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 HelveticaNeue;\f4\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red194\green126\blue101;
+\red193\green193\blue193;\red24\green26\blue30;\red255\green255\blue255;\red236\green236\blue236;\red14\green14\blue14;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c80784\c56863\c47059;
+\cssrgb\c80000\c80000\c80000;\cssrgb\c12157\c13725\c15686;\cssrgb\c100000\c100000\c100000;\cssrgb\c94118\c94118\c94118;\cssrgb\c6275\c6275\c6275;
+}
+\margl1440\margr1440\vieww28300\viewh15000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Assemble Reference:\
+chmod +x *.sh\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+module load blast\
+sbatch Full_ISSRseq_AssembleReference.sh -O FullOut -I /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/All_Sequences/ -S /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/New_Sample_Names/New_Sample_Names.txt -R sample17 -T 20 -M 50 -H 0 -P /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Primers_and_Neg_Ref/\cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 i5_i7_ISSR_primers.fasta
+\f1 \cf5 \cb1 \strokec5  \cf2 -
+\f0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 K 80 -L 100 -N /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Primers_and_Neg_Ref/Asarum_pulchellum_cpgenome.txt -X 18 \
+\
+\
+\
+\
+\
+\
+Full Assembly error stopped at sample 22: 
+\f2\fs26 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Exception in thread "Thread-16" java.lang.RuntimeException: java.io.IOException: Disk quota exceeded\
+\pard\pardeftab720\partightenfactor0
+\cf0 	at stream.ReadStreamByteWriter.run(ReadStreamByteWriter.java:32)\
+Caused by: java.io.IOException: Disk quota exceeded\
+	at java.base/java.io.FileOutputStream.writeBytes(Native Method)\
+	at java.base/java.io.FileOutputStream.write(FileOutputStream.java:400)\
+	at java.base/java.io.BufferedOutputStream.implWrite(BufferedOutputStream.java:217)\
+	at java.base/java.io.BufferedOutputStream.write(BufferedOutputStream.java:200)\
+	at stream.ReadStreamByteWriter.writeFastq(ReadStreamByteWriter.java:452)\
+	at stream.ReadStreamByteWriter.processJobs(ReadStreamByteWriter.java:97)\
+	at stream.ReadStreamByteWriter.run2(ReadStreamByteWriter.java:42)\
+	at stream.ReadStreamByteWriter.run(ReadStreamByteWriter.java:28)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Create BAMS:\
+chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3/pkgs/picard-3.3.0-hdfd78af_0/share/picard-3.3.0-0\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/bbmap\
+sbatch Full_ISSRseq_CreateBAMs.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31 -T 20\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Analyze BAMS:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3/pkgs/picard-3.3.0-hdfd78af_0/share/picard-3.3.0-0\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/gatk-4.6.1.0/\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samtools-1.21/bin\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samtools-1.21\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/jdk-17.0.12/bin\
+sbatch Full_ISSRseq_AnalyzeBAMs.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31 -T 20 -P 2\
+\
+*change select expressions to select\
+\
+\
+\
+Create Matrices:\
+chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+module load vcftools\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/gatk-4.6.1.0/\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcf2phylip\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcftools_0.1.7\
+./Test_ISSRseq_CreateMatrices.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut_2025_01_10_18_36 -T 20 -S 1 -D 150 -M 0.5\
+\
+vcf2phylip not found\
+add .py extension and module load python\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 High error rate issues:\
+Not sure if we have these dependencies installed conda install -c bioconda arcs tigmint\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs32 \cf6 \cb7 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 For B parameter; for other genome sizes, the value for\'a0
+\f4\fs27\fsmilli13600 \cb1 B
+\f3\fs32 \cb7 \'a0can be interpolated. Note that there is no downside to using larger than necessary\'a0
+\f4\fs27\fsmilli13600 \cb1 B
+\f3\fs32 \cb7 \'a0value, except for the memory required. To make sure you have selected a correct\'a0
+\f4\fs27\fsmilli13600 \cb1 B
+\f3\fs32 \cb7 \'a0value, inspect the standard error log of the assembly process and ensure that the reported FPR value under\'a0
+\f4\fs27\fsmilli13600 \cb1 Counting Bloom filter stats
+\f3\fs32 \cb7 \'a0is 5% or less. This requires using verbosity level 1 with\'a0
+\f4\fs27\fsmilli13600 \cb1 v=-v
+\f3\fs32 \cb7 \'a0option.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 No index available; generating from reference genome: /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/ref/index/1/chr1_index_k13_c13_b1.block\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\
+\
+\
+\
+after adding samtools index $PREFIX/bams/$\{sample\}_sorted_RG_DM.bam to script\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A USER ERROR has occurred: selectExpressions is not a recognized option\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A USER ERROR has occurred: linked-de-bruijn-graph is not a recognized option\
+\
+***********************************************************************\
+Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.\
+Downloaded newest gatk and added it to path\
+\
+\
+\
+ USER ERROR has occurred: Traversal by intervals was requested but some input files are not indexed.\
+Please index all input files:\
+\
+samtools index /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut_2025_01_10_18_36/bams/sample07_sorted_RG_DM.bam\
+\
+\
+***********************************************************************\
+Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.\
+\
+\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f3\fs28 \cf0 \cb7 \strokec2 Hi Jason ,\
+It worked , we have made changes in UnmappedBamToAlignedBam.wdl\'a0 \'a0and BamProcessing.wdl\'a0 by adding "input_bam_index" variable and its file location\'a0\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \cb1 \strokec2 \
+\
+\
+\
+\
+after adding --read-index $PREFIX/gvcfs/$\{sample\}.g.vcf.idx in script\
+htsjdk.samtools.SAMFormatException: Unknown BAM index file type: sample07.g.vcf.idx\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+Solution? 
+\f3\fs28 \cb7 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 input_bam_index path/to/file
+\f0\fs24 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\
+\
+picard-3.3.0-hdfd78af_0\
+jam file error just change in script to location of jam file\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Failed exit code 1\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+make: Entering directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+abyss-pe: must specify either `B` or `np` for the Bloom filter and MPI modes respectively. Bloom filter mode is recommended.\
+Try `abyss-pe help` for more information.\
+make: *** [/users/PAS1596/lambert648/miniconda3/envs/ISSR_Seq_Analysis/bin/abyss-pe.Makefile:401: error] Error 1\
+make: Leaving directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \expnd0\expndtw0\kerning0
+make: Entering directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+abyss-stack-size 65536 abyss-bloom-dbg -k50 -q3  -b10G -j2  trimmed_R1.fastq trimmed_R2.fastq  > reference-1.fa\
+Running with max stack size of 65536 KB: abyss-bloom-dbg -k50 -q3 -b10G -j2 trimmed_R1.fastq trimmed_R2.fastq\
+AdjList    -k50 -m0 --dot reference-1.fa >reference-1.dot\
+reference-1.fa:0: warning: file is empty\
+abyss-rresolver-short  -b10G -f0.8 -j2 -k50 \\\
+ -h reference-1-rr --dot -c reference-1-rr.fa \\\
+-g reference-1-rr.dot reference-1.fa reference-1.dot trimmed_R1.fastq trimmed_R2.fastq \
+reference-1.fa:0: warning: file is empty\
+make: *** [/users/PAS1596/lambert648/miniconda3/envs/ISSR_Seq_Analysis/bin/abyss-pe.Makefile:583: reference-1-rr.fa] Segmentation fault\
+make: Leaving directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+module load miniconda3\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs30 \cf8 \cb9 \expnd0\expndtw0\kerning0
+conda activate /users/PAS1596/lambert648/miniconda3\
+\
+\
+module load samtools\
+module load picard\
+module load gatk\
+\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/abyss-2.2.4/bin\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/bbmap\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/pigz\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcf2phylip\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcftools_0.1.7\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/abyss-2.2.4/ABYSS\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs26 \cf0 \cb1 make: Entering directory `/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Test_2025_01_07_12_13/reference'\
+ABYSS -k50 -q3    --coverage-hist=coverage.hist -s reference-bubbles.fa  -o reference-1.fa trimmed_R1.fastq trimmed_R2.fastq \
+bash: ABYSS: command not found\
+make: *** [reference-1.fa] Error 127\
+make: Leaving directory `/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Test_2025_01_07_12_13/reference'\
+\
+Options:\
+  -b, -m                      Ignored for compatibility.\
+  -B, --always-make           Unconditionally make all targets.\
+  -C DIRECTORY, --directory=DIRECTORY\
+                              Change to DIRECTORY before doing anything.\
+  -d                          Print lots of debugging information.\
+  --debug[=FLAGS]             Print various types of debugging information.\
+  -e, --environment-overrides\
+                              Environment variables override makefiles.\
+  --eval=STRING               Evaluate STRING as a makefile statement.\
+  -f FILE, --file=FILE, --makefile=FILE\
+                              Read FILE as a makefile.\
+  -h, --help                  Print this message and exit.\
+  -i, --ignore-errors         Ignore errors from recipes.\
+  -I DIRECTORY, --include-dir=DIRECTORY\
+                              Search DIRECTORY for included makefiles.\
+  -j [N], --jobs[=N]          Allow N jobs at once; infinite jobs with no arg.\
+  -k, --keep-going            Keep going when some targets can't be made.\
+  -l [N], --load-average[=N], --max-load[=N]\
+                              Don't start multiple jobs unless load is below N.\
+  -L, --check-symlink-times   Use the latest mtime between symlinks and target.\
+  -n, --just-print, --dry-run, --recon\
+                              Don't actually run any recipe; just print them.\
+  -o FILE, --old-file=FILE, --assume-old=FILE\
+                              Consider FILE to be very old and don't remake it.\
+  -p, --print-data-base       Print make's internal database.\
+  -q, --question              Run no recipe; exit status says if up to date.\
+  -r, --no-builtin-rules      Disable the built-in implicit rules.\
+  -R, --no-builtin-variables  Disable the built-in variable settings.\
+  -s, --silent, --quiet       Don't echo recipes.\
+  -S, --no-keep-going, --stop\
+                              Turns off -k.\
+  -t, --touch                 Touch targets instead of remaking them.\
+  -v, --version               Print the version number of make and exit.\
+  -w, --print-directory       Print the current directory.\
+  --no-print-directory        Turn off -w, even if it was turned on implicitly.\
+  -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE\
+                              Consider FILE to be infinitely new.\
+  --warn-undefined-variables  Warn when an undefined variable is referenced.\
+  --warn-undefined-functions  Warn when an undefined user function is called.\
+\
+With -B\
+make: *** =TestOut/reference: No such file or directory.  Stop.\
+\
+Without -B\
+make: Entering directory `/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Test_2025_01_07_12_13/reference'\
+ABYSS -k50 -q3    --coverage-hist=coverage.hist -s reference-bubbles.fa  -o reference-1.fa trimmed_R1.fastq trimmed_R2.fastq \
+bash: ABYSS: command not found\
+make: *** [reference-1.fa] Error 127\
+make: Leaving directory `/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Test_2025_01_07_12_13/reference'\
+\
+\
+Bash RC with conda: 
+\f1\fs30 \cf8 \cb9 # .bashrc\
+\
+# Source global definitions\
+if [ -f /etc/bashrc ]; then\
+        . /etc/bashrc\
+fi\
+\
+# User specific aliases and functions\
+\
+# >>> conda initialize >>>\
+# !! Contents within this block are managed by 'conda init' !!\
+__conda_setup="$('/users/PAS1596/lambert648/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"\
+if [ $? -eq 0 ]; then\
+    eval "$__conda_setup"\
+else\
+    if [ -f "/users/PAS1596/lambert648/miniconda3/etc/profile.d/conda.sh" ]; then\
+        . "/users/PAS1596/lambert648/miniconda3/etc/profile.d/conda.sh"\
+    else\
+        export PATH="/users/PAS1596/lambert648/miniconda3/bin:$PATH"\
+    fi\
+fi\
+unset __conda_setup\
+# <<< conda initialize <<<\
+
+\f2\fs26 \cf0 \cb1 \
+\
+}

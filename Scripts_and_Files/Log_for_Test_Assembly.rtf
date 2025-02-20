@@ -1,0 +1,493 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2818
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fswiss\fcharset0 Helvetica-Bold;
+\f3\fmodern\fcharset0 Courier;\f4\fmodern\fcharset0 Courier-Bold;\f5\fnil\fcharset0 HelveticaNeue;
+\f6\fnil\fcharset0 Monaco;\f7\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;}
+{\colortbl;\red255\green255\blue255;\red239\green247\blue169;\red222\green239\blue83;\red0\green0\blue0;
+\red255\green255\blue255;\red193\green193\blue193;\red102\green177\blue50;\red102\green177\blue50;\red163\green217\blue121;
+\red126\green125\blue117;\red166\green164\blue154;\red185\green182\blue254;\red252\green84\blue78;\red155\green255\blue78;
+\red252\green81\blue252;\red252\green84\blue78;\red166\green164\blue154;\red236\green236\blue236;\red14\green14\blue14;
+\red236\green236\blue236;\red14\green14\blue14;\red253\green193\blue49;\red252\green39\blue18;\red24\green26\blue30;
+}
+{\*\expandedcolortbl;;\cssrgb\c94902\c96766\c71899;\cssrgb\c89392\c93723\c39643;\cssrgb\c0\c0\c0;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c80000\c80000\c80000;\cssrgb\c46532\c73327\c25364;\cssrgb\c46532\c73327\c25364;\cssrgb\c69337\c86836\c54718;
+\cssrgb\c56863\c56078\c53333;\cssrgb\c70980\c70196\c66667;\cssrgb\c77647\c77255\c99608;\cssrgb\c100000\c42353\c37647;\cssrgb\c65882\c100000\c37647;
+\cssrgb\c100000\c45098\c99216;\cssrgb\c100000\c42353\c37647;\cssrgb\c70980\c70196\c66667;\cssrgb\c94118\c94118\c94118;\cssrgb\c6275\c6275\c6275;
+\cssrgb\c94118\c94118\c94118;\cssrgb\c6275\c6275\c6275;\cssrgb\c99771\c79477\c24504;\cssrgb\c100000\c25271\c7591;\cssrgb\c12157\c13725\c15686;
+}
+\margl1440\margr1440\vieww20280\viewh15000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb2 \ul \ulc0 Assemble Reference:\cb3 \ulnone \
+\cb1 chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+module load blast\
+sbatch Full_ISSRseq_AssembleReference.sh -O FullOut_Bas_Samples_Removed -I /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/All_Sequences/ -S /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samples_bad_removed.txt -R sample17 -T 20 -M 50 -H 0 -P /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Primers_and_Neg_Ref/\cf4 \cb5 \expnd0\expndtw0\kerning0
+i5_i7_ISSR_primers.fasta
+\f1 \cf6 \cb1  \cf4 -
+\f0 \cf0 \kerning1\expnd0\expndtw0 K 80 -L 100 -N /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Primers_and_Neg_Ref/Asarum_pulchellum_cpgenome.txt -X 18 \
+\
+\
+
+\f2\b \ul Errors:
+\f0\b0  \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+make: Entering directory `/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Test_2025_01_07_12_13/reference'\
+ABYSS -k50 -q3    --coverage-hist=coverage.hist -s reference-bubbles.fa  -o reference-1.fa trimmed_R1.fastq trimmed_R2.fastq \
+bash: ABYSS: command not found\
+make: *** [reference-1.fa] Error 127\
+make: Leaving directory `/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Test_2025_01_07_12_13/reference'\
+\
+Options:\
+  -b, -m                      Ignored for compatibility.\
+  -B, --always-make           Unconditionally make all targets.\
+  -C DIRECTORY, --directory=DIRECTORY\
+                              Change to DIRECTORY before doing anything.\
+  -d                          Print lots of debugging information.\
+  --debug[=FLAGS]             Print various types of debugging information.\
+  -e, --environment-overrides\
+                              Environment variables override makefiles.\
+  --eval=STRING               Evaluate STRING as a makefile statement.\
+  -f FILE, --file=FILE, --makefile=FILE\
+                              Read FILE as a makefile.\
+  -h, --help                  Print this message and exit.\
+  -i, --ignore-errors         Ignore errors from recipes.\
+  -I DIRECTORY, --include-dir=DIRECTORY\
+                              Search DIRECTORY for included makefiles.\
+  -j [N], --jobs[=N]          Allow N jobs at once; infinite jobs with no arg.\
+  -k, --keep-going            Keep going when some targets can't be made.\
+  -l [N], --load-average[=N], --max-load[=N]\
+                              Don't start multiple jobs unless load is below N.\
+  -L, --check-symlink-times   Use the latest mtime between symlinks and target.\
+  -n, --just-print, --dry-run, --recon\
+                              Don't actually run any recipe; just print them.\
+  -o FILE, --old-file=FILE, --assume-old=FILE\
+                              Consider FILE to be very old and don't remake it.\
+  -p, --print-data-base       Print make's internal database.\
+  -q, --question              Run no recipe; exit status says if up to date.\
+  -r, --no-builtin-rules      Disable the built-in implicit rules.\
+  -R, --no-builtin-variables  Disable the built-in variable settings.\
+  -s, --silent, --quiet       Don't echo recipes.\
+  -S, --no-keep-going, --stop\
+                              Turns off -k.\
+  -t, --touch                 Touch targets instead of remaking them.\
+  -v, --version               Print the version number of make and exit.\
+  -w, --print-directory       Print the current directory.\
+  --no-print-directory        Turn off -w, even if it was turned on implicitly.\
+  -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE\
+                              Consider FILE to be infinitely new.\
+  --warn-undefined-variables  Warn when an undefined variable is referenced.\
+  --warn-undefined-functions  Warn when an undefined user function is called.\
+\
+\
+
+\f4\b Solution: Abyss was not compiled correctly
+\f3\b0 \
+\
+\
+
+\f4\b \ul Error:
+\f3\b0 \ulnone \
+Without -B flag in abyss-pe script\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+make: Entering directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+abyss-pe: must specify either `B` or `np` for the Bloom filter and MPI modes respectively. Bloom filter mode is recommended.\
+Try `abyss-pe help` for more information.\
+make: *** [/users/PAS1596/lambert648/miniconda3/envs/ISSR_Seq_Analysis/bin/abyss-pe.Makefile:401: error] Error 1\
+make: Leaving directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+\
+
+\f4\b Solution: Added -B flag set to 500GB pairs
+\f3\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+
+\f2\b \ul Error:
+\f0\b0 \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+make: Entering directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+abyss-stack-size 65536 abyss-bloom-dbg -k50 -q3  -b10G -j2  trimmed_R1.fastq trimmed_R2.fastq  > reference-1.fa\
+Running with max stack size of 65536 KB: abyss-bloom-dbg -k50 -q3 -b10G -j2 trimmed_R1.fastq trimmed_R2.fastq\
+AdjList    -k50 -m0 --dot reference-1.fa >reference-1.dot\
+reference-1.fa:0: warning: file is empty\
+abyss-rresolver-short  -b10G -f0.8 -j2 -k50 \\\
+ -h reference-1-rr --dot -c reference-1-rr.fa \\\
+-g reference-1-rr.dot reference-1.fa reference-1.dot trimmed_R1.fastq trimmed_R2.fastq \
+reference-1.fa:0: warning: file is empty\
+make: *** [/users/PAS1596/lambert648/miniconda3/envs/ISSR_Seq_Analysis/bin/abyss-pe.Makefile:583: reference-1-rr.fa] Segmentation fault\
+make: Leaving directory '/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/TestOut/reference'\
+\
+
+\f2\b\fs24 \kerning1\expnd0\expndtw0 Solution: Reference did not have reads that passed QC. Pick better reference sample
+\f0\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\cb2 \ul Create BAMS:\cb1 \ulnone \
+chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3/pkgs/picard-3.3.0-hdfd78af_0/share/picard-3.3.0-0\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/bbmap\
+sbatch Full_ISSRseq_CreateBAMs.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50 -T 20\
+\
+
+\f2\b \ul Error: \ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\f3\b0\fs26 \cf0 \expnd0\expndtw0\kerning0
+No index available; generating from reference genome: /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/ref/index/1/chr1_index_k13_c13_b1.block\
+\
+
+\f4\b \cb7 Solution: Need to add samtools index into for loop in script\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f5\b0\fs28 \cf0 solution? input_bam_index path/to/file
+\f4\b\fs26 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 \kerning1\expnd0\expndtw0 \ul \ulc0 Error:\ulnone  \
+
+\f0\b0 picard jam file not found\
+
+\f2\b Solution:
+\f0\b0  change path in script to the correct path to your jar file\
+\
+\
+\
+\
+Failed exit code 1
+\f4\b\fs26 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \ul \ulc0 Analyze BAMS:\ulnone \
+chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3/pkgs/picard-3.3.0-hdfd78af_0/share/picard-3.3.0-0\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/gatk-4.6.1.0/\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samtools-1.21/bin\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samtools-1.21\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/jdk-17.0.12/bin\
+sbatch Full_ISSRseq_AnalyzeBAMs.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50 -T 20 -P 2\
+\
+#Most of analyze bams is fine until the filtering stage. If you didnt change the filtering, just run those few lines separately after deleting original files\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b\fs26 \cf0 \cb8 \expnd0\expndtw0\kerning0
+Solution: Need to add samtools index into for loop in script\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f5\b0\fs28 \cf0 solution? input_bam_index path/to/file\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 after adding samtools index $PREFIX/bams/$\{sample\}_sorted_RG_DM.bam to script\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \cb9 \expnd0\expndtw0\kerning0
+after adding --read-index $PREFIX/gvcfs/$\{sample\}.g.vcf.idx in script\
+htsjdk.samtools.SAMFormatException: Unknown BAM index file type: sample07.g.vcf.idx\cb1 \
+\
+
+\f4\b \ul Error: 
+\f3\b0 \ulnone A USER ERROR has occurred: linked-de-bruijn-graph is not a recognized option\ul \
+
+\f4\b \ulnone Solution: Either need to get most recent version of gatk or gatk recent version does not support that option
+\f3\b0 \
+\
+
+\f4\b \ul Error:
+\f3\b0 \ulnone  A USER ERROR has occurred: selectExpressions is not a recognized option\
+
+\f4\b Solution: Change to --select not --selectExpression. It has been changed recently to --select only
+\f3\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+Solution? 
+\f5\fs28 \cb5 \expnd0\expndtw0\kerning0
+input_bam_index path/to/file
+\f0\fs24 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \ul \ulc0 Create Matrices:\ulnone \
+chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+module load vcftools\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/gatk-4.6.1.0/\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcf2phylip\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcftools_0.1.7\
+./Full_ISSRseq_CreateMatrices.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50 -T 20 -S 1 -D 1 -M 0.5\
+\
+
+\f2\b \ul Error:
+\f0\b0 \ulnone  vcf2phylip not found\
+
+\f2\b Solution: 
+\f0\b0 ensure vcf2phylip is downloaded and folder is added to path. Then add .py extension and module load python (or export python to path)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+
+\f2\b Important Note: If you want all SNPs, not biallelic or multiallelic, delete the --restrict-alleles-to BIALLELIC option or set it to ALL (default). If you do this, you will have to remove the allele frequency thresholds (AF > 0.01 && AF < 0.99 &&) in the --select statement
+\f0\b0 \
+\
+\
+\
+This works: \
+gatk --java-options "-Xmx100g" \\\
+SelectVariants \\\
+-R /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31/reference/final_reference_assembly.fa \\\
+-V /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31/variants/raw_variants.vcf \\\
+-O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31/variants/filtered_variants.vcf \\\
+--restrict-alleles-to BIALLELIC \\\
+--select-type-to-include SNP \\\
+--select-type-to-include INDEL \\\
+--select 'AF > 0.01 && AF < 0.99 && QD > 2.0 && MQ > 40.0 && FS < 60.0 && SOR < 3.0 && ReadPosRankSum > -8.0 && MQRankSum > -12.5 && QUAL > 30.0' \\\
+\
+\
+\
+\
+This runs when deleting restrict-alleles-to bc it defaults to ALL and deleting the AF (allele freq) thresholds in the select statement\
+gatk --java-options "-Xmx100g" \\\
+SelectVariants \\\
+-R /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31/reference/final_reference_assembly.fa \\\
+-V /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31/variants/raw_variants.vcf \\\
+-O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_2025_01_21_09_31/variants/filtered_variants.vcf \\\
+--select-type-to-include SNP \\\
+--select-type-to-include INDEL \\\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 --select 'QD > 2.0 && MQ > 40.0 && FS < 60.0 && SOR < 3.0 && ReadPosRankSum > -8.0 && MQRankSum > -12.5 && QUAL > 30.0' \\\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+
+\f2\b \ul ADMIXTURE\
+#Export paths as needed\
+
+\f0\b0 \ulnone \
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Plink\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/Admixture/dist/admixture_linux-1.3.0
+\f2\b \ul \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f6\b0\fs33 \cf10 \cb4 \expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 \strokec10 # Generate the input file in plink format\cf11 \cb4 \strokec11 \
+plink \cf12 \strokec12 --vcf\cf11 \strokec11  /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50/Admixture_Correct_Order_Test/\cf13 \cb4 \outl0\strokewidth0 missing_thinned_filtered_variants.vcf\cf11 \cb4 \outl0\strokewidth0 \strokec11  \cf12 \strokec12 --make-bed\cf11 \strokec11  \cf12 \strokec12 --out\cf11 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11  \cf12 \strokec12 --allow-extra-chr --horse\cf11 \strokec11 \
+\
+\cf10 \cb4 \strokec10 # ADMIXTURE does not accept chromosome names that are not human chromosomes. We will thus just exchange the first column by 0\cf11 \cb4 \strokec11 \
+awk \cf14 \cb4 \strokec14 '\{$1="0";print $0\}'\cf11 \cb4 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11 .bim \cf12 \strokec12 >\cf11 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants.\cf11 \cb4 \outl0\strokewidth0 \strokec11 bim.tmp\
+mv \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11 .bim.tmp \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11 .bim\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf11 \cb4 \strokec11 \
+\pard\pardeftab720\partightenfactor0
+
+\fs33 \cf11 \cb4 \strokec11 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\b\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \ul \ulc0 \outl0\strokewidth0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f6\b0\fs33 \cf15 \cb4 \expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 \strokec15 for \cf11 \strokec11 i \cf15 \strokec15 in\cf11 \strokec11  \cf12 \strokec12 \{\cf11 \strokec11 1..5\cf12 \strokec12 \}\cf11 \strokec11 \
+\cf15 \strokec15 do\
+ \cf11 \strokec11 admixture \cf12 \strokec12 --cv\cf11 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11 .bed \cf16 \strokec16 $i\cf11 \strokec11  \cf12 \strokec12 >\cf11 \strokec11  log\cf15 \strokec15 $\{\cf16 \strokec16 i\cf15 \strokec15 \}\cf11 \strokec11 .out\
+\cf15 \strokec15 done\cf11 \strokec11 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f6\fs33 \cf11 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec11 grep \cf14 \cb4 \strokec14 "CV"\cf11 \cb4 \strokec11  \cf15 \strokec15 *\cf11 \strokec11 out | awk \cf14 \cb4 \strokec14 '\{print $3,$4\}'\cf11 \cb4 \strokec11  | cut \cf12 \strokec12 -c\cf11 \strokec11  4,7-20 \cf12 \strokec12 >\cf11 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11 .cv.error\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f6\fs18 \cf11 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec11 awk \cf14 \strokec14 '\{split($1,name,"."); print $1,name[2]\}'\cf11 \strokec11  
+\fs33 \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants.nosex
+\fs18 \cf11 \cb4 \outl0\strokewidth0 \strokec11  \cf12 \strokec12 >\cf11 \strokec11  
+\fs33 \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants
+\fs18 \cf11 \cb4 \outl0\strokewidth0 \strokec11 .list\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs33 \cf17 \cb4 \outl0\strokewidth0 make sure to load R 4.02 and download required packages\
+
+\f1\fs30 \cf18 \cb19 /tmp/Rtmp8MjLuc/downloaded_packages
+\f6\fs18 \cf11 \cb4 \outl0\strokewidth0 \strokec11 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f6\fs33 \cf11 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec11 Rscript plotADMIXTURE.r \cf12 \strokec12 -p\cf11 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11  \cf12 \strokec12 -i\cf11 \strokec11  \cf13 \cb4 \outl0\strokewidth0 TEST_missing_thinned_filtered_variants\cf11 \cb4 \outl0\strokewidth0 \strokec11 .nosex \cf12 \strokec12 -k\cf11 \strokec11  5 \cf12 \strokec12 -l\cf11 \strokec11  USA\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs30 \cf20 \cb21 \strokec20 module load R/4.0.2-gnu9.1
+\f6\fs33 \cf11 \cb4 \strokec11 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\
+\cb22 FOR QUALITY FILT TESTING:\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 chmod +x *.sh\
+source ~/miniconda3/bin/activate\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3\
+conda activate ISSR_Seq_Analysis\
+export PATH=$PATH:/users/PAS1596/lambert648/miniconda3/pkgs/picard-3.3.0-hdfd78af_0/share/picard-3.3.0-0\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/gatk-4.6.1.0/\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samtools-1.21/bin\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/samtools-1.21\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/jdk-17.0.12/bin\
+module load vcftools\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/gatk-4.6.1.0/\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcf2phylip\
+export PATH=$PATH:/fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/vcftools_0.1.7\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 gatk --java-options "-Xmx100g" \\\
+SelectVariants \\\
+-R /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50/reference/final_reference_assembly.fa \\\
+-V /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50/variants/raw_variants.vcf \\\
+-O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50/variants/filtered_variants.vcf \\\
+--select-type-to-include SNP \\\
+--select-type-to-include INDEL \\\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 --restrict-alleles-to BIALLELIC \\\
+--select 'QD > 2.0 && MQ > 30.0 && FS < 60.0 && SOR < 3.0 && ReadPosRankSum > -8.0 && MQRankSum > -12.5 && QUAL > 30.0' \\\
+\
+./TEST_Full_ISSRseq_CreateMatrices.sh -O /fs/ess/PAS0331/Brett/Analysis_Software/ISSRseq/FullOut_Bas_Samples_Removed_2025_02_11_17_50  -T 20 -S 1 -D 1 -M 0.5\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+6318 default (all allelic?) v 6337 biallelic how does this happen?\
+*change select expressions to select\
+\
+When changing to multiallelic, you get this issue\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs30 \cf18 \cb19 \expnd0\expndtw0\kerning0
+A USER ERROR has occurred: Invalid JEXL expression detected for select-0\
+See https://gatk.broadinstitute.org/hc/en-us/articles/360035891011-JEXL-filtering-expressions for documentation on using JEXL in GATK\
+\
+\'97-select 'AF > 0.01 && AF < 0.99'\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 This part of the select expression is the issue. The allele frequency part\
+\
+When you don\'92t end the command properly you get this error\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs30 \cf18 \cb19 \expnd0\expndtw0\kerning0
+A USER ERROR has occurred: Illegal argument value: Positional arguments were provided ', \}' but no positional argument is defined for this tool.
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+###Important\
+Max de novo contig length 3507 ID is \outl0\strokewidth0 \strokec4 157033 but alot of repeats in large contigs. Maybe more reasonable max length is 1500\
+\outl0\strokewidth0 \
+Max contig length for final assembly is also 3507 ID 157036\
+\
+\cb23 Miscellaneous\cb1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 High error rate issues:\
+Not sure if we have these dependencies installed conda install -c bioconda arcs tigmint\
+\pard\pardeftab720\partightenfactor0
+
+\f5\fs32 \cf24 \cb5 \expnd0\expndtw0\kerning0
+For B parameter; for other genome sizes, the value for\'a0
+\f7\fs27\fsmilli13600 \cb1 B
+\f5\fs32 \cb5 \'a0can be interpolated. Note that there is no downside to using larger than necessary\'a0
+\f7\fs27\fsmilli13600 \cb1 B
+\f5\fs32 \cb5 \'a0value, except for the memory required. To make sure you have selected a correct\'a0
+\f7\fs27\fsmilli13600 \cb1 B
+\f5\fs32 \cb5 \'a0value, inspect the standard error log of the assembly process and ensure that the reported FPR value under\'a0
+\f7\fs27\fsmilli13600 \cb1 Counting Bloom filter stats
+\f5\fs32 \cb5 \'a0is 5% or less. This requires using verbosity level 1 with\'a0
+\f7\fs27\fsmilli13600 \cb1 v=-v
+\f5\fs32 \cb5 \'a0option.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\
+
+\f2\b Finding Missing Data %\
+
+\f0\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs30 \cf20 \cb4 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec20 awk 'NR>1 \{count=gsub(/N/, "N"); print $1, count/length($2)\}' missing_thinned_filtered_varia\
+nts.min1.phy > missing_percent_All_Alleles_MQ_Removed_Dist_1.txt\cb21 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+\
+}

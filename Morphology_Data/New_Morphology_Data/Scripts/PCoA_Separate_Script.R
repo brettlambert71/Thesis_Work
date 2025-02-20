@@ -1,3 +1,5 @@
+# PLEASE READ: Lines 15-66 are only for following with the RAW dataset (Final_RAW_copy.csv). This is meant to show how data cleaning was performed.
+#If you just want the results, run lines 4-13 then 69-the end of script using the "Final_Avg_Interp_Dataframe_for_Supp_Materials.csv" file. 
 # Load packages for cleaning and analyses ---------------------------------
 library(tidyverse)
 library(ggplot2)

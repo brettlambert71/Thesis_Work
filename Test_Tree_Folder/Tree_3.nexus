@@ -1,0 +1,8 @@
+#NEXUS 
+
+Begin trees;  [Treefile saved Mon Feb 03 13:18:44 2025]
+[!
+>Data file = All_Alleles_MQ_Removed_Dist1.nexus
+]
+tree 'PAUP_1' = [&U] (sample02:100,(((sample03:100,sample12:100):68,(((((((sample04:100,sample37:100):51,sample13:100):100,(((((((((((sample19:100,sample90:100):24,sample83:100):5,((((sample47:100,(sample73:100,sample82:100):30):39,sample57:100):19,sample84:100):15,(sample65:100,sample81:100):30):4):1,(((sample46:100,sample86:100):58,sample88:100):27,(((sample60:100,sample68:100):58,sample61:100):49,sample69:100):81):7):1,((((sample56:100,((sample72:100,(sample74:100,sample76:100):37):28,sample85:100):39):39,sample66:100):32,sample62:100):57,sample77:100):21):26,sample67:100):42,sample63:100):22,(sample70:100,sample87:100):48):27,((sample51:100,sample59:100):44,sample80:100):41):12,(((sample49:100,sample55:100):86,(sample50:100,sample52:100):48):90,sample79:100):47):75,(sample71:100,sample89:100):91):100):100,sample39:100):100,(sample14:100,sample21:100):99):100,((((((sample07:100,sample08:100):96,((sample10:100,sample11:100):43,((sample16:100,sample42:100):91,sample43:100):72):31):60,sample20:100):50,sample17:100):71,(((sample18:100,(sample24:100,(((sample25:100,sample44:100):51,sample29:100):44,sample31:100):28):38):27,(sample22:100,sample26:100):50):47,sample32:100):41):34,(sample28:100,(sample33:100,sample36:100):45):61):67):22,(sample05:100,((((sample06:100,sample45:100):26,(sample15:100,sample38:100):29):25,sample27:100):17,sample35:100):24):100):32):53,sample09:100):87,sample53:100);
+End;

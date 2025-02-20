@@ -11,7 +11,7 @@ library(fMultivar)
 library(cluster)
 
 # Read in data and clean --------------------------------------------------
-raw <- read_csv("Morph_Data/Final_Avg_Interp_Dataframe_for_Supp_Materials.csv") 
+raw <- read_csv("Morph_Data/Final_RAW_Copy.csv") 
 str(raw)
 #Remove correlated or ambiguous traits
 raw_2 <- raw %>% 
